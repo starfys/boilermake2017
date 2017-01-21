@@ -12,7 +12,6 @@ db = client['boilermake']
 collection = db['all_words']
 
 #all words and respective data will live here
-#'SUM' holds total number of words
 masterDict = {}
 
 def ShowValues():
@@ -38,11 +37,16 @@ def PushToMongo():
     item = masterDict
     db.collection.insert_one(item)
 
+def DeleteAllMongo():
+    db.collection.delete_many({})
+
+
 #for testing
-l = [('word','the'),('word2','the'),('word','and'),('word','and'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven')]
+l = [('START_TOKEN','word'),('START_TOKEN','word2'),('START_TOKEN','the'),('START_TOKEN','and'),('START_TOKEN','seven'),('and','word'),('the','and'),('seven','word'),('seven','the'),('seven','word2'),('word','the'),('word2','the'),('word','and'),('word','and'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven')]
+
+DeleteAllMongo()
 
 InsertToMasterDict(l)
 PushToMongo()
 
-#ShowValues()
-
+ShowValues()
