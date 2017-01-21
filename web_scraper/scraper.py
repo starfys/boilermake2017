@@ -2,9 +2,8 @@ import pickle
 import requests
 from bs4 import BeautifulSoup as bsoup
 import re
-
-
-
+from os import listdir
+import json
 
 html_parser = "lxml"
 
@@ -66,10 +65,42 @@ def scrape_project(project_url):
     team_details = [parse_team_member(member) for member in project_soup.find_all('li', {'class': 'software-team-member'})]
     return {'title': project_title, 'project_details': project_details, 'team_details': team_details}
 
-hackathon_root = 'https://vandyhacks3.devpost.com'
+def search_hackathon(name):
+    search_page = session.get('https://devpost.com/hackathons?utf8=✓&search={}&challenge_type=all&sort_by=Recently+Added'.format(name)).text
+    if 'find any challenges' in search_page:
+        #TODO: strip qualifiers
+        print('Hackathon {} doesn\'t exist'.format(name))
+        return set()
+    else:
+        print('Hackathons found under {}'.format(name))
+    search_soup = bsoup(search_page, html_parser)
+    hackathon_urls = set()
+    for hackathon in search_soup.find('div', {'class':'results'}).div.find_all('div', {'class': 'row'}):
+        link = hackathon.div.article
+        if link is None:
+            continue
+        hackathon_urls.add(re.search('https://.*\.devpost\.com', link.a['href']).group(0))
+    return hackathon_urls
 
-vandyhacks_projects = list_projects(hackathon_root)
-# vandyhacks_projects = ["https://devpost.com/software/cyberspacemt"]
+hackathon_list = set()
+for year in listdir('./hackathon_list'):
+    for month in listdir('./hackathon_list/'+year):
+        for hackathon in list(json.load(open('./hackathon_list/{}/{}'.format(year, month), 'r')).values())[0]:
+            hackathon_list.add(hackathon['title'])
 
-with open('vandyhacks.pickle' ,'wb') as vandyhacks_file:
-    pickle.dump([scrape_project(p) for p in vandyhacks_projects], vandyhacks_file)
+hackathon_url_list = set()
+
+"""
+#Retrieves hackathon list
+for index, hackathon in enumerate(hackathon_list):
+    print('{}%',(index/len(hackathon_list))*100)
+    try:
+        hackathon_url_list.update(search_hackathon(hackathon))
+    except:
+        print('failed to retrieve hackathons for {}'.format(hackathon))
+with open('hackathon_urls','w') as hackathon_url_list_file:
+    for hackathon_url in hackathon_url_list:
+        hackathon_url_list_file.write('{}\n'.format(hackathon_url))
+"""
+
+
