@@ -48,6 +48,7 @@ hackIdeasApp.controller("searchEngine",function($scope, $rootScope,$http){
     }
 
     console.log($scope.userMarkovChain);
+
   }
 
 
@@ -59,5 +60,11 @@ hackIdeasApp.controller("searchEngine",function($scope, $rootScope,$http){
     $scope.genMarkovChain($scope.enteredHackIdea);
   }
 
+  // Listen for user's selection of new hackathon projects
+  $scope.$on("selectedHacksChanged",function(events,args)
+  {
+    $scope.selectedProjects = args.selectedList;
+    console.log($scope.selectedProjects);
+  });
 
 });
