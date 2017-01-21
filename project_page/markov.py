@@ -20,6 +20,8 @@ headers = {
 }
 
 
+def clean_header(header):
+    header = ' '.join(map(lambda s: s.capitalize, header.split('_')))
 class MarkovBot(object):
     def __init__(self, hostname='localhost', port=6379):
         self.redis_db = redis.StrictRedis(host=hostname, port=port, db=0)
@@ -100,7 +102,7 @@ class MarkovBot(object):
                     break
             generated_title += new_letter.split('_')[1]
             prev_letter = new_letter
-        if generated_title in ('',' ','  ','   '):
+        if generated_title.rstrip() == '':
             generated_title = self.generate_title()
         return generated_title
     def train_title(self):

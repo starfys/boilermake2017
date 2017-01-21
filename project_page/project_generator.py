@@ -7,4 +7,4 @@ mb = MarkovBot()
 desc = mb.generate_project()
 title = mb.generate_title()
 with open('myproject.html','w') as output_file:
-    output_file.write(template.replace('INSERT_TITLE_HERE',title).replace('INSERT_DESCRIPTION_HERE',desc).replace('INSERT_LIKES_HERE',str(random.randint(1,100))))
+    output_file.write(template.replace('INSERT_TITLE_HERE',title).replace('INSERT_DESCRIPTION_HERE',desc).replace('INSERT_LIKES_HERE',str(random.randint(1,100))).replace('INSERT_TAGLINE_HERE',mb.generate(mb.redis_db.randomkey(), 10)))
