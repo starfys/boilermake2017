@@ -11,10 +11,6 @@ s = db.collection
 
 max_words = 100
 
-prev_word = 'word'
-print(s.find_one()[prev_word]['SUM'])
-
-
 def generate():
     generated_sentence = []
     prev_word = 'START_TOKEN'
@@ -34,4 +30,4 @@ def generate():
         prev_word = new_word
     return ' '.join(generated_sentence)
 
-generate()
+print(generate())

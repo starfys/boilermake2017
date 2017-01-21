@@ -42,7 +42,7 @@ def DeleteAllMongo():
 
 
 #for testing
-l = [('START_TOKEN','word'),('START_TOKEN','word2'),('START_TOKEN','the'),('START_TOKEN','and'),('START_TOKEN','seven'),('and','word'),('the','and'),('seven','word'),('seven','the'),('seven','word2'),('word','the'),('word2','the'),('word','and'),('word','and'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven')]
+l = [('END_TOKEN','word'),('START_TOKEN','word'),('START_TOKEN','word2'),('START_TOKEN','the'),('START_TOKEN','and'),('START_TOKEN','seven'),('and','word'),('the','and'),('seven','word'),('seven','the'),('seven','word2'),('word','the'),('word2','the'),('word','and'),('word','and'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven')]
 
 DeleteAllMongo()
 
