@@ -1,7 +1,11 @@
+<link rel="stylesheet" href="css/projectlisting.css">
 <div name="hackProjects" ng-repeat="proj in hackProjects"  proj-list-format>
-    <h3>{{proj.projName}}</h3>
+    <h3 id="{{proj.projName.split(' ').join('')}}_head">{{proj.projName}}</h3>
     <div>
       <p>
+        <span style="color: white;background-color: black;">Use Project:</span>
+        <input type="checkbox" id="{{proj.projName.split(' ').join('')}}_check"  ng-click="toggleSelectedProject(proj.projName.split(' ').join(''))"/>
+        <br>
         {{proj.projDesc}}
       </p>
     </div>
