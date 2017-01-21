@@ -1,4 +1,21 @@
-useHeader{
+.useHeader{
   color: white;
   background-color: black;
+}
+
+.newIdeaBox{
+  width:100%;
+  height:100vh;
+}
+
+.genIdeaBox{
+  border: 2px grey dotted;
+}
+
+.selectProjectsGroup{
+
+}
+
+.generatedProjectGroup{
+
 }

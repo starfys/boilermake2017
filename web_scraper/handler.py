@@ -70,8 +70,6 @@ class MarkovBot(object):
                 for key, replacement in headers.items():
                     description = description.replace(key, replacement) 
                 words = re.split(r'[ \n\t]+', description)[1:]
-                in_technologies
-                prev_word = 'START_TOKEN'
                 for word in words:
                     self.add_link(prev_word,word)
                     prev_word = word
