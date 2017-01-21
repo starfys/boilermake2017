@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 lte-ie9"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 lte-ie9"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 lte-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lte-ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class=" js flexbox canvas canvastext no-touch postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache filereader" xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://opengraphprotocol.org/schema/" itemscope="itemscope" itemtype="http://schema.org/SoftwareApplication" style="" lang="en"><!--<![endif]--><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# challengepost: http://ogp.me/ns/fb/challengepost#">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script src="devpost_project_files/nr-1016.js"></script><script id="facebook-jssdk" src="devpost_project_files/all.js"></script><script type="text/javascript" async="" src="devpost_project_files/ga.js"></script><script type="text/javascript" async="" src="devpost_project_files/mixpanel-2.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"f9082fa052","applicationID":"7341974","transactionName":"IQpdERFeXFVVRhpbCw8AHBYMV0ROUUZQQEsRDVwS","queueTime":1,"applicationTime":276,"ttGuid":"","agentToken":null,"agent":""}</script><style type="text/css">
+:root .social-links,
+:root .youtube-icon,
+:root .ss-social-regular,
+:root #header + #content > #left > #rlblock_left,
+:root .ss-social,
+:root .addthis_32x32_style,
+:root .addthis_button_reddit,
+:root .social-icon,
+:root .addthis_button_facebook,
+:root .addthis_default_style,
+:root .addthis_toolbox,
+:root .addthis_button_twitter,
+:root #social-links,
+:root .follow-btn
+{ display: none !important; }</style><style type="text/css">img[src="http://graph.facebook.com/231846967224455/picture?type=square"],
+img[src="http://graph.facebook.com/1645448225747898/picture?type=square"]
+{display:none !important;}</style>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1016.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+    <meta name="viewport" content="width=device-width">
+    <title>INSERT_TITLE_HERE</title>
+
+    <meta name="description" content="INSERT_TITLE_HERE - Sneak Attacks For Your Own Good">
+<meta property="fb:app_id" content="115745995110194">
+<meta property="og:title" content="INSERT_TITLE_HERE">
+<meta property="og:description" content="Sneak Attacks For Your Own Good">
+<meta property="og:type" content="challengepost:app">
+<meta property="og:site_name" content="Devpost">
+<meta property="og:image" content="https://devpost-challengepost.netdna-ssl.com/assets/shared/devpost_social_icon_200_200-7b823e9bb545df78675e749bcb8b15ed.jpg">
+<meta property="og:url" content="http://devpost.com/software/outtatheblues">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@Devpost">
+<meta name="twitter:title" content="INSERT_TITLE_HERE">
+<meta name="twitter:description" content="Sneak Attacks For Your Own Good">
+<meta name="twitter:image" content="https://devpost-challengepost.netdna-ssl.com/assets/shared/devpost_social_icon_200_200-7b823e9bb545df78675e749bcb8b15ed.jpg">
+<meta name="twitter:domain" content="devpost.com">
+<meta name="twitter:url" content="http://devpost.com/software/outtatheblues">
+<meta itemprop="name" content="INSERT_TITLE_HERE">
+<meta itemprop="description" content="Sneak Attacks For Your Own Good">
+<meta itemprop="image" content="https://devpost-challengepost.netdna-ssl.com/assets/shared/devpost_social_icon_large-0a48621075a8cd3eba8a4e779f61c3f3.jpg">
+<meta itemprop="screenshot" content="https://devpost-challengepost.netdna-ssl.com/assets/shared/devpost_social_icon_large-0a48621075a8cd3eba8a4e779f61c3f3.jpg">
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="39psn+znN0d3vttr/AFsWroGJc90mx14iLCvFdNvq8s7AqA/OuP9CBCEKcrD9n7RhHBLfUp8JpInxecgTclWmw==">
+    
+
+    <!--[if gt IE 7]><!-->
+    <link rel="stylesheet" media="screen" href="devpost_project_files/reimagine2-2b3516c3abcdd08b7e6578d2aa31a6a3.css">
+    <link rel="stylesheet" media="screen" href="devpost_project_files/home_application-5c6f28fae60e9080d8244ebebe5930ee.css">
+    
+    <script src="devpost_project_files/modernizr-bef57869320b416d48fb2c5087d5e793.js"></script>
+    <!--<![endif]-->
+
+    <link href="https://plus.google.com/100989403125217127946" rel="publisher">
+  <meta class="foundation-mq-small"><meta class="foundation-mq-medium"><meta class="foundation-mq-large"><style></style><style type="text/css"></style><style type="text/css">
+:root *[ko110pb][hidden] { display: none !important; }</style></head>
+
+  <body id="body-softwares" class="foundation-grid action-show controller-softwares engine-home placeholder">
+    
+
+    <!--googleoff: anchor-->
+
+<!--[if lte IE 9 ]>
+  <div id="unsupported_browser_version" class="persistent_message alert-box alert">
+    <p>
+      We've detected that you are using an unsupported browser.  Please
+      <a href="http://browsehappy.com/">upgrade your browser</a>
+      to Internet Explorer 10 or higher.
+    </p>
+  </div>
+<![endif]-->
+
+
+<!--googleon: anchor-->
+
+
+
+    
+    
+    
+  
+<header id="global-nav">
+  <div class="contain-to-grid hide-for-large-up">
+  <nav class="top-bar" data-topbar="">
+    <ul class="title-area top-bar-section">
+      <li class="name">
+        <span id="logo">
+  <a href="http://devpost.com/">
+    <img alt="Devpost" src="devpost_project_files/devpost-icon-900856edde1e4a510a65f29a1bde7a2b.svg">
+</a></span>
+
+      </li>
+
+        <li class="toggle-topbar has-dropdown not-click">
+    <a class="user" id="global-nav-screen-name" aria-label="Access your account menu" href="https://devpost.com/StevenSheffey?ref_content=user-portfolio&amp;ref_feature=portfolio&amp;ref_medium=global-nav">
+      <img alt="StevenSheffey" class="user-avatar user-photo gravatar_image image-replacement" src="devpost_project_files/350cd3c35b7bec3443169e3299032153_002.png">
+
+</a>  </li>
+
+      <li class="menu left">
+  <ul>
+    <li>
+  <a class="main-link" data-role="teams" href="http://devpost.com/teams">
+    Jobs <span class="label all-caps small alpha">nyc</span>
+</a></li>
+
+<li>
+  <a class="main-link" data-role="thecommit" href="http://devpost.com/thecommit">
+    The Commit <span class="ss-icon ss-social-regular ss-youtube youtube-icon" ko110pb="" hidden=""></span>
+</a></li>
+
+<li>
+  <a class="main-link" data-role="discover" href="http://devpost.com/hackathons">
+    Hackathons
+</a></li>
+
+  </ul>
+</li>
+
+      
+    </ul>
+
+    
+  <section class="top-bar-section">
+        <ul class="right logged-in">
+  <li class="divider"></li>
+  <li>
+    <a href="https://devpost.com/StevenSheffey?ref_content=user-portfolio&amp;ref_feature=portfolio&amp;ref_medium=global-nav">Portfolio</a>
+  </li>
+  <li class="divider"></li>
+
+  <li>
+    <a href="https://devpost.com/teams/invite_friends">Invite friends</a>
+  </li>
+  <li class="divider"></li>
+
+
+  <li>
+    <ul data-role="manage-team-list" id="manage-team-list">
+    </ul>
+  </li>
+
+
+  <li id="global-nav-user-settings">
+    <a href="https://devpost.com/settings">Settings</a>
+  </li>
+  <li class="divider"></li>
+
+  <li id="global-nav-user-log-out" data-global-nav-user="log-out">
+    <a href="https://secure.devpost.com/users/logout">Log out</a>
+  </li>
+  <li class="divider"></li>
+
+
+</ul>
+
+
+    </section></nav>
+</div>
+
+  <div class="contain-to-grid hide-for-small hide-for-medium">
+  <nav class="top-bar" data-topbar="">
+    <ul class="title-area">
+      <li class="name">
+        <span id="logo">
+  <a href="http://devpost.com/">
+    <img alt="Devpost" src="devpost_project_files/devpost-logo-646bdf6ac6663230947a952f8d354cad.svg">
+</a></span>
+
+      </li>
+    </ul>
+
+    
+  <section class="top-bar-section">
+      <ul class="left">
+  <li>
+  <a class="main-link" data-role="teams" href="http://devpost.com/teams">
+    Jobs <span class="label all-caps small alpha">nyc</span>
+</a></li>
+
+<li>
+  <a class="main-link" data-role="thecommit" href="http://devpost.com/thecommit">
+    The Commit <span class="ss-icon ss-social-regular ss-youtube youtube-icon" ko110pb="" hidden=""></span>
+</a></li>
+
+<li>
+  <a class="main-link" data-role="discover" href="http://devpost.com/hackathons">
+    Hackathons
+</a></li>
+
+</ul>
+
+        <ul class="right logged-in">
+  <li class="hide-for-small" data-region="notification-bell">
+  <a data-notification="bell" data-dropdown="notification-dd" id="notification-button" href="https://devpost.com/notifications"><i class="ss-icon ss-notifications  disabled"></i>
+
+&nbsp;
+</a>
+</li>
+
+
+  <li class="has-dropdown not-click" id="global-nav-user-dropdown">
+    <a class="user" id="global-nav-screen-name" aria-label="Access your account menu" href="https://devpost.com/StevenSheffey?ref_content=user-portfolio&amp;ref_feature=portfolio&amp;ref_medium=global-nav">
+      <img alt="StevenSheffey" class="user-avatar user-photo gravatar_image image-replacement" src="devpost_project_files/350cd3c35b7bec3443169e3299032153_003.png">
+
+</a>
+    <ul class="dropdown"><li class="title back js-generated"><h5><a href="#">Back</a></h5></li>
+      <li class="divider"></li>
+
+      <li>
+        <a href="https://devpost.com/StevenSheffey?ref_content=user-portfolio&amp;ref_feature=portfolio&amp;ref_medium=global-nav">Portfolio</a>
+      </li>
+      <li class="divider"></li>
+
+      <li>
+        <a href="https://devpost.com/teams/invite_friends">Invite friends</a>
+      </li>
+      <li class="divider"></li>
+
+
+      <li>
+        <ul data-role="manage-team-list" id="manage-team-list">
+        </ul>
+      </li>
+
+
+      <li id="global-nav-user-settings">
+        <a href="https://devpost.com/settings">Settings</a>
+      </li>
+      <li class="divider"></li>
+
+      <li id="global-nav-user-log-out" data-global-nav-user="log-out">
+        <a href="https://secure.devpost.com/users/logout">Log out</a>
+      </li>
+      <li class="divider"></li>
+
+
+
+    </ul>
+  </li>
+</ul>
+
+
+    </section></nav>
+</div>
+
+</header>
+
+
+    <div id="notification-dd" class="f-dropdown medium" data-dropdown-content="" data-notification="dropdown">
+  <header>
+    <h6 class="text-center">Notifications</h6>
+  </header>
+  <div data-region="dropdown-feed">
+    <p class="text-center loading">Loading...</p>
+  </div>
+  <footer class="text-center" data-region="footer">
+  </footer>
+</div>
+
+
+
+
+    <section id="container">
+        <header class="page-header text-center" id="software-header">
+
+  <div class="row">
+    <div class="small-12 columns">
+      
+      <h1 id="app-title">INSERT_TITLE_HERE</h1>
+
+        <p class="large">
+    Sneak Attacks For Your Own Good
+  </p>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="software-likes">
+  <div data-like="base">
+      <a class="like-button button radius secondary" data-like="like-button" rel="nofollow" data-method="post" href="https://devpost.com/software/outtatheblues/likes">
+  <span class="ss-icon ss-heart"></span>
+  Like
+    <span class="side-count">INSERT_LIKES_HERE</span>
+</a>
+</div>
+
+</div>
+
+      <a id="software-comment-button" class="button radius comment-button" href="https://devpost.com/software/outtatheblues#updates">
+  <span class="ss-icon ss-quote"></span>
+  Comment
+</a>
+
+    </div>
+  </div>
+</header>
+
+  
+<nav id="software-nav">
+  <div class="row">
+    <div class="large-12 columns">
+      <ul class="left no-bullet">
+        <li>
+          <h4>
+            <a class="active" href="https://devpost.com/software/outtatheblues">Story</a>
+          </h4>
+        </li>
+        <li>
+          <h4>
+            <a href="https://devpost.com/software/outtatheblues#updates">Updates</a>
+          </h4>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+      
+  
+
+
+
+<article id="app-details" class="content-section">
+  <div class="row">
+    <div class="large-9 columns" id="app-details-left">
+      
+
+
+
+      <div>
+        INSERT_DESCRIPTION_HERE      
+      </div>
+
+        <div id="built-with" class="">
+    <h2>Built With</h2>
+
+    <ul class="no-bullet inline-list"><li><span class="cp-tag recognized-tag"><a href="https://devpost.com/software/built-with/azure">azure</a></span></li><li><span class="cp-tag recognized-tag"><a href="https://devpost.com/software/built-with/javascript">javascript</a></span></li></ul>
+  </div>
+
+      
+    </div>
+
+    <aside class="large-3 columns" id="app-details-right">
+
+      
+      <section id="app-team">
+  <h4 class="clearfix">
+    Created by
+  </h4>
+
+  <ul class="no-bullet">
+    
+<li class="software-team-member" itemprop="member">
+  
+  <div class="row">
+    <div class="small-2 large-4 columns">
+      <figure>
+        <a class="user-profile-link" href="https://devpost.com/Rjacob"><img alt="Rjacob" class="software-member-photo user-photo facebook_avatar_image image-replacement" title="Rjacob" src="devpost_project_files/rytpykyd08dxs5wlzsmc.jpg"></a>
+      </figure>
+    </div>
+
+    <div class="small-10 large-8 columns">
+      <a class="user-profile-link" href="https://devpost.com/Rjacob">Steven Sheffey</a>
+      <span class="follow-button-wrapper rendered" data-context="software-detail" data-layout="condensed" data-followed-id="657986"><div class="follow-actions follow-actions-condensed">
+  <button class="button follow-btn radius tiny follow tip-top has-tip" data-tooltip="" title="Follow" ko110pb="" hidden="">
+    <span class="follow-text">
+      <i class="ss-icon ss-plus"></i>
+      
+    </span>
+  </button>
+</div>
+</span>
+      <br>
+      <small>Deep Learning Researcher</small>
+    </div>
+  </div>
+</li>
+
+<li class="software-team-member" itemprop="member">
+  
+  <div class="row">
+    <div class="small-2 large-4 columns">
+      <figure>
+        <a class="user-profile-link" href="https://devpost.com/MahendraMhatre"><img alt="MahendraMhatre" class="software-member-photo user-photo photo_image image-replacement" title="MahendraMhatre" src="devpost_project_files/profile.jpg"></a>
+      </figure>
+    </div>
+
+    <div class="small-10 large-8 columns">
+      <a class="user-profile-link" href="https://devpost.com/MahendraMhatre">Mahendra Mhatre</a>
+      <span class="follow-button-wrapper rendered" data-context="software-detail" data-layout="condensed" data-followed-id="657955"><div class="follow-actions follow-actions-condensed">
+  <button class="button follow-btn radius tiny follow tip-top has-tip" data-tooltip="" title="Follow" ko110pb="" hidden="">
+    <span class="follow-text">
+      <i class="ss-icon ss-plus"></i>
+      
+    </span>
+  </button>
+</div>
+</span>
+      <br>
+      <small></small>
+    </div>
+  </div>
+</li>
+
+<li class="software-team-member" itemprop="member">
+  
+  <div class="row">
+    <div class="small-2 large-4 columns">
+      <figure>
+        <a class="user-profile-link" href="https://devpost.com/desaiuditd"><img alt="desaiuditd" class="software-member-photo user-photo facebook_avatar_image image-replacement" title="desaiuditd" src="devpost_project_files/gwtcpjatxahxzzuymys1.jpg"></a>
+      </figure>
+    </div>
+
+    <div class="small-10 large-8 columns">
+      <a class="user-profile-link" href="https://devpost.com/desaiuditd">Udit Desai</a>
+      <span class="follow-button-wrapper rendered" data-context="software-detail" data-layout="condensed" data-followed-id="657873"><div class="follow-actions follow-actions-condensed">
+  <button class="button follow-btn radius tiny follow tip-top has-tip" data-tooltip="" title="Follow" ko110pb="" hidden="">
+    <span class="follow-text">
+      <i class="ss-icon ss-plus"></i>
+      
+    </span>
+  </button>
+</div>
+</span>
+      <br>
+      <small></small>
+    </div>
+  </div>
+</li>
+
+  </ul>
+
+</section>
+
+
+        <div class="section">
+    <a id="flag" href="https://devpost.com/software/outtatheblues/flags/new">
+      <span class="ss-icon ss-flag small"></span>
+      <small>Report inappropriate content</small>
+</a>  </div>
+
+    </aside>
+  </div>
+</article>
+
+<section id="share-and-like">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="clearfix">
+        <div class="left">
+          <div class="software-likes">
+  <div data-like="base">
+      <a class="like-button button radius secondary" data-like="like-button" rel="nofollow" data-method="post" href="https://devpost.com/software/outtatheblues/likes">
+  <span class="ss-icon ss-heart"></span>
+  Like
+    <span class="side-count">1</span>
+</a>
+</div>
+
+
+  <span class="like-counts">
+    1 person likes this:
+  </span>
+
+  <ul class="like-users inline-list">
+      <li>
+        <a class="user-profile-link" href="https://devpost.com/MahendraMhatre"><img alt="MahendraMhatre" class="user-photo has-tip user-photo photo_image image-replacement" title="Mahendra Mhatre" data-tooltip="657955" src="devpost_project_files/medium.jpg"></a>
+      </li>
+  </ul>
+
+</div>
+
+        </div>
+        <div class="right hide-for-small">
+          
+<div id="software-share">
+  Share this project:
+  
+
+
+  <ul class="h-nav clearfix inline-list" id="social-links" ko110pb="" hidden="">
+    <li id="promote-twitter">
+      
+<div class="social-icon" ko110pb="" hidden="">
+  <div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:url="http://devpost.com/software/outtatheblues?utm_campaign=portfolio-share&amp;utm_medium=twitter&amp;utm_source=cp" addthis:title="Check out INSERT_TITLE_HERE" addthis:description="http://devpost.com/software/outtatheblues" ko110pb="" hidden="">
+    <a class="addthis_button_twitter" tw:count="false" tw:counturl="http://devpost.com/software/outtatheblues" tw:url="http://devpost.com/software/outtatheblues?utm_campaign=portfolio-share&amp;utm_medium=twitter&amp;utm_source=cp" tw:via="Devpost" tw:text="Check out INSERT_TITLE_HERE" ko110pb="" hidden="">
+    </a>
+  </div>
+</div>
+
+    </li>
+
+    <li id="promote-fb-li">
+      
+<div class="social-icon" ko110pb="" hidden="">
+  <div class="addthis_32x32_style addthis_toolbox addthis_default_style" addthis:url="http://devpost.com/software/outtatheblues" addthis:title="INSERT_TITLE_HERE" addthis:description="" ko110pb="" hidden="">
+    <div class="custom_images">
+      <a class="addthis_button_facebook" fb:like:show_faces="false" ko110pb="" hidden="">
+      </a>
+    </div>
+  </div>
+</div>
+
+    </li>
+
+    <li id="promote-reddit-li">
+      <div class="social-icon" ko110pb="" hidden="">
+  <a class="addthis_button_reddit addthis_32x32_style" addthis:url="http://devpost.com/software/outtatheblues?utm_campaign=portfolio-share&amp;utm_medium=reddit&amp;utm_source=cp" addthis:title="INSERT_TITLE_HERE" ko110pb="" hidden=""></a>
+</div>
+
+    </li>
+</ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="hackathon-picker" class="reveal-modal small" data-reveal="" data-hackathon-picker="">
+  <a class="close-reveal-modal close-reveal-modal-x">×</a>
+  <div data-region="hackathon-picker-content"></div>
+</div>
+
+
+
+<article class="content-section">
+  <div class="row">
+    <div class="large-12 columns software-updates">
+      <h2 id="updates">Updates</h2>
+
+      <article class="content-section software-update with-sidebar" data-commentable-id="81586">
+  <div class="row">
+    <div class="large-8 small-12 columns">
+      <div data-region="actions"><div class="update-dropdown right">
+  <a data-dropdown="update_dropdown_81586" aria-controls="update-dropdown" aria-expanded="false" href="#">
+    <i class="ss-icon ss-dropdown"></i>
+  </a>
+  <ul id="update_dropdown_81586" class="f-dropdown" data-dropdown-content="" aria-hidden="true" tabindex="-1">
+    
+      <li>
+        <a data-subscription="on" href="#">
+          <i class="ss-icon ss-mail"></i>
+          Turn on notifications
+        </a>
+      </li>
+    
+  </ul>
+
+</div></div>
+
+      <div class="body">
+        <p class="author">
+          <a class="user-profile-link" href="https://devpost.com/Rjacob"><img alt="Rjacob" class="user-avatar user-photo facebook_avatar_image image-replacement" title="Rjacob" src="devpost_project_files/rytpykyd08dxs5wlzsmc.jpg"></a>
+
+          <a href="https://devpost.com/Rjacob">Rohit Jacob</a>
+          started this project
+
+          <span class="light-text">
+            —
+            <a class="timestamp light-text" href="https://devpost.com/software/outtatheblues/updates/81586">
+              <time class="timeago" datetime="2017-01-21T11:58:39-05:00" title="Jan 21, 2017 11:58 AM EST">about an hour ago</time>
+</a>          </span>
+        </p>
+
+        <p><i>Leave feedback in the comments!</i></p>
+      </div>
+
+      <section class="software-update-comments" data-layout="comments">
+  <div data-region="load-more"></div>
+  <div data-region="comments"><ul class="no-bullet"></ul></div>
+
+    <form class="simple_form comment-form" data-single-submit="true" novalidate="novalidate" id="new_comment" action="/software_updates/81586/comments" accept-charset="UTF-8" method="post"><input name="utf8" value="✓" type="hidden"><input name="authenticity_token" value="39psn+znN0d3vttr/AFsWroGJc90mx14iLCvFdNvq8s7AqA/OuP9CBCEKcrD9n7RhHBLfUp8JpInxecgTclWmw==" type="hidden">
+    <h3>
+      <label for="comment_body">Comments</label>
+    </h3>
+
+    <div class="comment-column">
+      <a class="user-profile-link" href="https://devpost.com/StevenSheffey"><img alt="StevenSheffey" class="user-avatar user-photo gravatar_image image-replacement" title="StevenSheffey" src="devpost_project_files/350cd3c35b7bec3443169e3299032153.png"></a>
+
+      <div class="input text required comment_body"><textarea class="text required" placeholder="Write a comment" name="comment[body]" id="comment_body"></textarea></div>
+      <input name="comment[location]" id="comment_location" value="project detail page" type="hidden">
+      <input name="commit" value="Post comment" class="btn button radius small" type="submit">
+    </div>
+</form>
+</section>
+
+    </div>
+    <div class="columns"></div>
+  </div>
+</article>
+
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+      
+    </section>
+
+    
+  <footer id="devpost-footer">
+  <div class="row">
+    <div class="small-6 large-3 columns">
+      <nav>
+        <h4>Devpost</h4>
+        <ul>
+          <li><a href="https://info.devpost.com/about">About</a></li>
+          <li><a href="https://devpost.com/teams/devpost?ref_content=how-devpost-is-made&amp;ref_feature=teams&amp;ref_medium=footer">Our dev team</a></li>
+          <li><a href="https://info.devpost.com/careers">Careers</a></li>
+          <li><a href="https://info.devpost.com/contact">Contact</a></li>
+          <li><a href="https://help.devpost.com/">Help</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="small-6 large-3 columns">
+      <nav>
+        <h4>Jobs</h4>
+        <ul>
+          <li><a href="https://devpost.com/teams">Browse jobs</a></li>
+          <li><a href="https://devpost.com/teams/hiring">Employers</a></li>
+          <li><a href="https://devpost.com/thecommit">Job advice</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <hr class="clear show-for-small">
+
+    <div class="small-6 large-3 columns">
+      <nav>
+        <h4>Hackathons</h4>
+        <ul>
+          <li><a href="https://devpost.com/hackathons">Browse hackathons</a></li>
+          <li><a href="https://devpost.com/software?ref_content=footer-projects-link&amp;ref_feature=projects&amp;ref_medium=footer">Explore projects</a></li>
+          <li><a href="https://post.devpost.com/hackathons">Host an in-person hackathon</a></li>
+          <li><a href="https://post.devpost.com/online_hackathons">Host an online hackathon</a></li>
+          <li><a href="https://post.devpost.com/app_contest_resources">Hackathon best practices</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="small-6 large-3 columns">
+      <nav>
+        <h4>Connect</h4>
+        <ul class="social-links" ko110pb="" hidden="">
+          <li>
+            <a href="https://twitter.com/devpost" target="_blank">
+              <i class="fa fa-twitter-square"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/devposthacks" target="_blank">
+              <i class="fa fa-facebook-square"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/playlist?list=PLmJ41elIxG7bRbhhCUQun3e4XNeyKc_-o" target="_blank">
+              <i class="fa fa-youtube-square"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://devposthacks.tumblr.com/" target="_blank">
+              <i class="fa fa-tumblr-square"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="small-6 large-12 columns">
+      <nav id="site-footer-legal">
+        <h4 class="show-for-small">Legal</h4>
+        <ul>
+          <li><a href="https://info.devpost.com/privacy"><small>Privacy policy</small></a></li>
+          <li><a href="https://info.devpost.com/guidelines"><small>Community Guidelines</small></a></li>
+          <li><a href="https://info.devpost.com/terms"><small>Terms of service</small></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+
+    
+    <script src="devpost_project_files/reimagine2-855b18a08e74a1a9ea9309268739429a.js"></script>
+<script src="devpost_project_files/platform-7fefecd984837772684fd2f5e6faf4e6.js"></script>
+
+<script src="devpost_project_files/home_application-fac41b12c9fd6a443bb8d764ffaa5d9b.js"></script>
+
+<script>
+  var _gaq = _gaq || [];
+
+  (function () {
+
+
+    _gaq.push(["cp._setDomainName","devpost.com"]);
+    _gaq.push(["cp._setAccount","UA-2233558-21"]);
+    _gaq.push(["cp._setAllowLinker",true]);
+    _gaq.push(["cp._require","inpage_linkid","//www.google-analytics.com/plugins/ga/inpage_linkid.js"]);
+
+    
+
+    _gaq.push(["cp._trackPageview"]);
+  })();
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  (function() {
+    mixpanel.identify("634867");
+    mixpanel.register({"ref_feature":"portfolio","ref_content":"user-portfolio","ref_medium":"global-nav"});
+  })();
+</script>
+
+<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+  var google_conversion_id = 999255338;
+  var google_custom_params = window.google_tag_params;
+  var google_remarketing_only = true;
+/* ]]> */
+</script>
+
+<div style="display:none">
+  <script type="text/javascript" src="devpost_project_files/conversion.js">
+  </script>
+</div>
+
+<noscript>
+  <div style="display:inline;">
+  <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/999255338/?value=0&amp;guid=ON&amp;script=0"/>
+  </div>
+</noscript>
+
+
+
+  <script type="text/javascript">
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    var addthis_config = {
+      data_ga_property: "UA-2233558-21",
+      ui_508_compliant: true,
+      ui_use_addressbook: true,
+      ui_email_note: "I thought you might be interested in INSERT_TITLE_HERE - Sneak Attacks For Your Own Good. It was built with azure and javascript.",
+      ui_email_from: "stevensheffey4@gmail.com"
+    };
+    var addthis_share = {
+      url_transforms: {
+        shorten: {
+          twitter: 'bitly'
+        }
+      },
+      shorteners: {
+        bitly: {}
+      },
+      email_template: "software_share_template",
+      email_vars: {
+        Title: "INSERT_TITLE_HERE",
+        Subject: "Check out this project on Devpost",
+        HomepageLink: "https://devpost.com/?utm_campaign=friends_share&utm_medium=email"
+      },
+      passthrough : {
+        twitter: {
+          via: "Devpost",
+          text: "Check out INSERT_TITLE_HERE"
+        }
+      }
+    };
+  </script>
+  <script type="text/javascript" src="devpost_project_files/addthis_widget.js"></script>
+
+
+
+<script type="text/javascript" charset="utf-8">
+  CP.env.addRoutes({
+    follows_url: "https://devpost.com/follows",
+    search_softwares_url: "https://devpost.com/software/search",
+    new_software_url: "https://devpost.com/software/new",
+    search_hackathons_url: "https://devpost.com/hackathons",
+    notifications_url: "https://devpost.com/notifications",
+    api: {
+      users_url: "https://api.devpost.com/users"
+    }
+  })
+
+  new Reimagine2();
+
+  $(function onDocumentReady() {
+      CP.Home.SoftwareCommentButton.setup();
+  CP.Home.ArrowKeyGalleryNavigation.setup('#gallery');
+  new CP.Home.EditableContribution('[data-contribution="editable-contribution"]')
+  CP.Mn.app.HackathonPicker.start({
+    software: {
+      id: 111156,
+      name: "INSERT_TITLE_HERE"
+    }
+  });
+  CP.Historic.setup(".software-updates");
+
+  ventChannel().trigger("updates:list", "outtatheblues");
+  CP.LinkCollectionTracker.setup(".recognized-tag a", "#app-details-right").track(
+    "Tag Gallery",
+    { "Tag displayed on": "software details page"}
+  );
+  new CP.Home.SoftwareLinks("[data-role=software-urls]").enhance();
+  CP.Home.DismissableMessage.setup("[data-alert]");
+  CP.ChallengeStateInfoTimeago.setup('#submissions');
+  CP.env.addRoutes({
+    api: {
+      teams_url: "https://devpost.com/teams/api/teams.json"
+    }
+  });
+
+  CP.SendFormOnCommandEnter.setup($("#masqueradee"));
+  (function(inputs) {
+    if (typeof inputs.cp_autocomplete === "function") inputs.cp_autocomplete();
+    inputs.on('click', function(event) { return false; });
+  })($("#masqueradee"));
+
+var FollowButtonApp = new CP.FollowButtonApp({
+  user: {
+    id: 634867,
+    screen_name: "StevenSheffey"
+  },
+  urls: {
+    register_url: "https://secure.devpost.com/users/register",
+    user_follows_url: "https://devpost.com/StevenSheffey/follows"
+  }
+});
+
+FollowButtonApp.start();
+  var appOptions = {};
+
+  _.extend(appOptions, {
+    user: {
+      id: 634867,
+      display_name: "Steven Sheffey"
+    }
+  });
+
+  CP.Mn.app.start(appOptions);
+
+  });
+
+</script>
+
+<!--[if lt IE 9 ]>
+  <script type="text/javascript">
+    $(function onDocumentReady() {
+      CP.IE.Notifications.setup();
+    });
+  </script>
+<![endif]-->
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https://devpost.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://devpost.com/software/search?query={query}",
+      "query-input": "name=query"
+    }
+}
+</script>
+
+<script src="devpost_project_files/oct.js" type="text/javascript"></script>
+<script type="text/javascript">
+  if (typeof(twttr) !== "undefined") {
+    twttr.conversion.trackPid('l6ngp', { tw_sale_amount: 0, tw_order_quantity: 0 });
+  }
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=l6ngp&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+<img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=l6ngp&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+</noscript>
+
+
+
+<script type="text/javascript">try {mixpanel.track("Logged In Pageview", {"time":1485022179,"ip":" 172.31.42.80","distinct_id":"634867","page_name":"home/softwares#show","orgs":[]});} catch(err) {};</script>
+<div class="atwho-container"><div id="atwho-ground-comment_body"><div class="atwho-view" id="at-view-58"><ul class="atwho-view-ul"></ul></div><div class="atwho-view" id="at-view-64"><ul class="atwho-view-ul"></ul></div></div></div></body></html>

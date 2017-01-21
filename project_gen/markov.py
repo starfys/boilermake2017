@@ -18,7 +18,7 @@ masterDict = {}
 class MarkovBot(object):
     def __init__(self,hostname='localhost',port=27017):
         self.max_words = 100
-        self.client = MongoClient('mongodb://'+hostname+':'+str(port))
+        self.client = MongoClient('mongodb://{}:{}'.format(hostname, port))
         self.db = self.client['boilermake']
         self.collection = self.db['all_words']
         self.s = self.db.collection
@@ -45,7 +45,6 @@ class MarkovBot(object):
     def push_to_mongo(self):
         item = self.masterDict
         self.collection.insert_one(item)
-
     #clear database
     def delete_all_mongo(self):
         self.collection.delete_many({})
@@ -54,9 +53,9 @@ class MarkovBot(object):
         generated_sentence = []
         prev_word = b64enc('START_TOKEN')
         for _ in range(self.max_words):
-            choice = random.randint(0, self.s.find_one()[prev_word]['SUM'])
+            choice = random.randint(0, self.collection.find_one()[prev_word]['SUM'])
         
-            possibilities = self.s.find_one()[prev_word]
+            possibilities = self.collection.find_one()[prev_word]
             for new_word, freq in possibilities.items():
                 if new_word == 'SUM':
                     continue
