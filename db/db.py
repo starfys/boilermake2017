@@ -1,5 +1,6 @@
 import pymongo
 from pymongo import MongoClient
+import pprint
 
 #connect to current client
 client = MongoClient('mongodb://localhost:27017')
@@ -10,26 +11,38 @@ db = client['boilermake']
 #create collection
 collection = db['all_words']
 
-#recieve input list
-inputList = [('a',1),('a',2),('b',1),('c',1)]
-
+#all words and respective data will live here
+#'SUM' holds total number of words
 masterDict = {}
 
-for tup in inputList:
-    if tup[0] not in masterDict:
-        masterDict[tup[0]] = {tup[1]:1}
-    else:
-        masterDict[tup[0]][tup[1]] += 1
+def ShowValues():
+    pprint.pprint(db.collection.find_one())
 
-print(masterDict)
+#InsertToMasterDict: takes a list of tuples into nested dictionaries in masterDict.
+def InsertToMasterDict(listOfTuples):
+    for tup in listOfTuples:
+        if tup[0] not in masterDict:
+            masterDict[tup[0]] = {tup[1]:1}
+        else:
+            if tup[1] not in masterDict[tup[0]]:
+                masterDict[tup[0]][tup[1]] = 1
+            else:
+                masterDict[tup[0]][tup[1]] += 1
+        if 'SUM' in masterDict[tup[0]]:
+            masterDict[tup[0]]['SUM'] += 1 
+        else:
+            masterDict[tup[0]]['SUM'] = 1
 
-'''
+#PushToMongo: puts masterDict onto database
+def PushToMongo():
+    item = masterDict
+    db.collection.insert_one(item)
 
-#initialize word
-word = 'testhereyay'
+#for testing
+l = [('word','the'),('word2','the'),('word','and'),('word','and'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven'),('word','seven')]
 
-post = {word:{'the':7,'and':2,'four':4}}
+InsertToMasterDict(l)
+PushToMongo()
 
-words = db.collection
-post_id = words.insert_one(post).inserted_id
-'''
+#ShowValues()
+
