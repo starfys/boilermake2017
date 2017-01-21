@@ -1,12 +1,14 @@
+import redis
 import json
 from bs4 import BeautifulSoup as bsoup
 import pickle
 import re
-
+from os import listdir
+import random
 with open('hackathon_data.pickle','rb') as hackathon_data_file:
     hackathon_data = pickle.load(hackathon_data_file)
 
-
+html_parser='lxml'
 headers = {
         'inspiration':'INSPIRATION',
         'motivation':'MOTIVATION',
@@ -21,18 +23,64 @@ headers = {
 }
 
 
-hackathon_tuples = []
-def insert_into_model(prev_word, word):
-    hackathon_tuples.append((prev_word, word))
-html_parser = 'lxml'
-for url, hackathon in list(hackathon_data.items()):
-    for project in hackathon:
-        description = bsoup(re.sub(r'</span>', '    </span>',project[1]), html_parser).text.lower()
-        for key, replacement in headers.items():
-            description = description.replace(key, replacement) 
-        words = re.split(r'[ \n\t]+', description)[1:]
+class MarkovBot(object):
+    def __init__(self, hostname='localhost', port=6379):
+        self.redis_db = redis.StrictRedis(host=hostname, port=port, db=0)
+        self.max_words = 1000
+    def add_link(self, prev_word, new_word):
+            self.redis_db.hincrby(prev_word, new_word, 1)
+            self.redis_db.hincrby('FREQUENCY',prev_word, 1)
+
+    def generate(self, prev_word = 'START_TOKEN', length=100):
+        self.max_words=length
+        generated_sentence = []
         prev_word = 'START_TOKEN'
-        for word in words:
-            insert_into_model(prev_word, word)
-            prev_word = word
-        hackathon_tuples.append((word, 'END_TOKEN'))
+        for _ in range(self.max_words):
+            try:
+                choice = random.randint(0, int(self.redis_db.hget('FREQUENCY', prev_word)))
+            except:
+                prev_word = 'START_TOKEN'
+                continue
+            possibilities = self.redis_db.hgetall('{}'.format(prev_word))
+            for new_word, value in possibilities.items():
+                choice -= int(value.decode('utf-8'))
+                if choice <= 0:
+                    break
+            new_word = new_word.decode('utf-8')
+            if new_word in headers.values():
+                prev_word = 'START_TOKEN'
+                continue
+            if new_word == 'END_TOKEN':
+                break
+            generated_sentence.append(new_word)
+            prev_word = new_word
+        return ' '.join(generated_sentence)
+    def reset():
+        self.redis_db.flushall()
+    def train_model()
+        for i, json_file in enumerate(listdir('data')):
+            print(i)
+            try:
+                hackathon = json.load(open('data/'+json_file,'r'))
+            except:
+                print('failed to open')
+                continue
+            for project in hackathon:
+                description = bsoup(re.sub(r'</span>', '    </span>',project[1]), html_parser).text.lower()
+                for key, replacement in headers.items():
+                    description = description.replace(key, replacement) 
+                words = re.split(r'[ \n\t]+', description)[1:]
+                prev_word = 'START_TOKEN'
+                for word in words:
+                    self.add_link(prev_word,word)
+                    prev_word = word
+    def generate_project():
+        for header in headers.values():
+            print(header)
+            print(self.generate(headers))
+
+mb = MarkovBot()
+#Trains
+#mb.train_model()
+#Generates
+#mb.generate_project()
