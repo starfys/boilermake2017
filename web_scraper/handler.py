@@ -21,43 +21,6 @@ headers = {
 }
 
 
-"""
-import re
-import redis
-import random
-class MarkovBot(object):
-    def __init__(self, hostname='localhost', port=6379):
-        self.redis_db = redis.StrictRedis(host=hostname, port=port, db=0)
-        self.max_words = 100
-
-    def add(self, sentence):
-        sentence.append('END_TOKEN')
-        prev_word = 'START_TOKEN'
-        for new_word in sentence:
-            #Add new_word as a new subentry of user_id_prev_word
-            self.redis_db.hincrby(prev_word, new_word, 1)
-            self.redis_db.incrby("{}_FREQUENCY".format(prev_word), 1)
-            prev_word = new_word
-
-    def generate(self):
-        generated_sentence = []
-        prev_word = 'START_TOKEN'
-        for _ in range(self.max_words):
-            choice = random.randint(0, int(self.redis_db.get('{}_FREQUENCY'.format(prev_word))))
-            possibilities = self.redis_db.hgetall(prev_word)
-            for new_word, value in possibilities.items():
-                choice -= int(value.decode('utf-8'))
-                if choice <= 0:
-                    break
-            new_word = new_word.decode('utf-8')
-            if new_word == 'END_TOKEN':
-                break
-            generated_sentence.append(new_word)
-            prev_word = new_word
-        return ' '.join(generated_sentence)
-
-markov_bot = MarkovBot()
-"""
 hackathon_tuples = []
 def insert_into_model(prev_word, word):
     hackathon_tuples.append((prev_word, word))
@@ -73,9 +36,3 @@ for url, hackathon in list(hackathon_data.items()):
             insert_into_model(prev_word, word)
             prev_word = word
         hackathon_tuples.append((word, 'END_TOKEN'))
-
-"""
-for _ in range(20):
-    print('========='*20)
-    print(markov_bot.generate())
-"""

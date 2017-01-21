@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import sys
 import pickle
 import requests
 from bs4 import BeautifulSoup as bsoup
@@ -10,7 +11,8 @@ import random
 import sys
 
 sys.setrecursionlimit(1500)
-
+from base64 import b64encode, b64decode
+b64enc = lambda string: b64encode(string.encode('utf-8')).decode('utf-8')
 html_parser = "lxml"
 
 #  Initialize a requests session
@@ -125,12 +127,9 @@ with open('hackathon_urls','w') as hackathon_url_list_file:
     for hackathon_url in hackathon_url_list:
         hackathon_url_list_file.write('{}\n'.format(hackathon_url))
 """
-
-with open('hackathon_urls','r') as hackathon_urls:
-    hack_urls = list(map(lambda url: url.rstrip(), hackathon_urls.readlines()))
-hackathon_data = {}
-for url in random.sample(hack_urls, 5):
-    print(url)
-    hackathon_data[url] = [scrape_project(project) for project in list_projects(url)]
-with open('hackathon_data.pickle','wb') as hackathon_data_file:
-    pickle.dump(hackathon_data, hackathon_data_file)
+url = sys.argv[1]
+with open('data/{}.json'.format(b64enc(url)), 'w') as hackathon_file:
+    try:
+        json.dump([scrape_project(project) for project in list_projects(url)], hackathon_file)
+    except:
+        print("Failed to scrape {}".format(url))
