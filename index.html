@@ -1,0 +1,88 @@
+<!doctype html>
+<html ng-app="hackIdeasApp" ng-cloak>
+  <head>
+    <title>Hack (AI) athon</title>
+    <style>
+      /*[ng\:cloak], [ng-cloak], .ng-cloak {
+        display: none;
+      }
+      .btn-overflowprev{
+        white-space:normal !important;
+        word-wrap:break-word;
+      }
+
+      .mainEditBox{
+        width: 100%;
+        overflow:hidden;
+      }
+      .editModeContent_head{
+        background-color: green;
+      }
+      .normalMode{
+
+      }*/
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/searchengine.js"></script>
+    <script src="js/projlisting.js"></script>
+    <script src="js/projlistformatdir.js"></script>
+    <div ng-include="'header.html'"></div>
+  </head>
+  <body>
+
+    <!-- We cover how to modify, set, get attributes, set attributes, get values, set values for HTML elements -->
+    <div class="container-fluid" >
+      <div class="row">
+        <div ng-controller="searchEngine" class="col-lg-3">
+          <div class="panel-group">
+            <div class="panel panel-default">
+              <div class="panel-heading" align="center">
+                <h2>Enter Hackathon Idea</h2>
+              </div>
+              <div class="panel-body" align="left">
+                <div class="container-fluid" align ="center">
+                  <button class="btn" ng-click="submitIdea()">Search</button>
+                  <textarea ng-model="enteredHackIdea"></textarea>
+                  <div class="container-fluid" align ="left">
+                      <ul>
+                        <li ng-repeat="tech in technologiesList">
+                          <input id="{{tech}}" value="{{tech}}" type="checkbox"/>
+                          <label for="{{tech}}">{{tech}}</label>
+                        </li>
+                      </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div ng-controller="projListing" class="col-lg-9">
+          <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading" align="center">
+                  <h2>Best Matching</h2>
+                </div>
+                <div class="panel-body">
+                  <div ng-include="'projlisting.html'"></div>
+
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
