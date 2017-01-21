@@ -55,9 +55,9 @@ class MarkovBot(object):
             generated_sentence.append(new_word)
             prev_word = new_word
         return ' '.join(generated_sentence)
-    def reset():
+    def reset(self):
         self.redis_db.flushall()
-    def train_model():
+    def train_model(self):
         for i, json_file in enumerate(listdir('data')):
             print(i)
             try:
@@ -75,7 +75,7 @@ class MarkovBot(object):
                 for word in words:
                     self.add_link(prev_word,word)
                     prev_word = word
-    def generate_project():
+    def generate_project(self):
         for header in ['INSPIRATION', 'MOTIVATION', 'WHAT_IT_DOES', 'HOW_WE_BUILT_IT', 'CHALLENGES_WE_RAN_INTO', 'ACCOMPLISHMENTS', 'WHAT_WE_LEARNED','WHATS_NEXT_FOR']:
             print(header)
             print(self.generate(headers))
