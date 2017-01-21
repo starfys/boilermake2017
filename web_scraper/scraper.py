@@ -1,9 +1,15 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import pickle
 import requests
 from bs4 import BeautifulSoup as bsoup
 import re
 from os import listdir
 import json
+import random
+import sys
+
+sys.setrecursionlimit(1500)
 
 html_parser = "lxml"
 
@@ -14,10 +20,17 @@ session.headers.update({'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) 
 def parse_team_member(member):
     """Given the contents of a team member list item, returns the team member's name and contribution
     """
-    member_name = member.find('div', {'class': 'row'}).find('div', {'class': 'small-10 large-8 columns'}).find('a').text
+    """
+    member_name = member.find('div', {'class': 'row'}).find('div', {'class': 'small-10 large-8 columns'}).find('a')
+    if member_name is None:
+        print(member.find('div', {'class': 'row'}).find('div', {'class': 'small-10 large-8 columns'}))
+        member_name = "NOBODY"
+    else:
+        member_name = member_name.text
+    """
     member_contribution = member.find('div', {'class': 'bubble'})
     member_contribution = "" if member_contribution is None else member_contribution.find('p').text
-    return (member_name, member_contribution)
+    return member_contribution
 
 def list_projects(hackathon_root):
     """Given a hackathon hostname on devpost, retrieves a list of projects, and returns the URL for each of them
@@ -31,9 +44,16 @@ def list_projects(hackathon_root):
     while True:
         # Retrieve the current page of submissions
         submission_page = session.get('{}/submissions?page={}'.format(hackathon_root, cur_page)).text
+        if 'The hackathon managers haven\'t published this gallery yet' in submission_page:
+            print("{} hasn't happened yet".format(url))
+            return []
         submission_soup = bsoup(submission_page, html_parser)
         project_rows = submission_soup.find('div',id='submission-gallery').find_all('div')
-        start_num, end_num, total = tuple(map(int, re.match('(\d+) – (\d+) of (\d+)', project_rows[-1].p.text).groups()))
+        try:
+            start_num, end_num, total = tuple(map(int, re.match('(\d+) – (\d+) of (\d+)', project_rows[-1].p.text).groups()))
+        except:
+            print(hackathon_root)
+            return []
         project_rows = project_rows[1:-1]
         for row in project_rows:
             for col in row.find_all('div')[:-1]:
@@ -48,22 +68,25 @@ def list_projects(hackathon_root):
     return projects
 
 def scrape_project(project_url):
-    """Given a devpost project URL, returns ths
-    title: The project's title
-    project_details: The project's writeup
-    team_details: Each team member and their contribution
-    """
-    # Soupify the project page
-    project_page = session.get(project_url).text
-    project_soup = bsoup(project_page, html_parser)
-    # Retrieve the project title
-    project_title = project_soup.find('h1',id='app-title').text
-    # TODO: Retrieve project image or randomly generate images
-    # Retrieve the project write-up
-    project_details = project_soup.find('div',id='app-details-left').text
-    # Retrieve team contributions
-    team_details = [parse_team_member(member) for member in project_soup.find_all('li', {'class': 'software-team-member'})]
-    return {'title': project_title, 'project_details': project_details, 'team_details': team_details}
+    try:
+        """Given a devpost project URL, returns ths
+        title: The project's title
+        project_details: The project's writeup
+        team_details: Each team member and their contribution
+        """
+        # Soupify the project page
+        project_page = session.get(project_url).text
+        project_soup = bsoup(project_page, html_parser)
+        # Retrieve the project title
+        project_title = project_soup.find('h1',id='app-title').text
+        # TODO: Retrieve project image or randomly generate images
+        # Retrieve the project write-up
+        project_details = project_soup.find('div',id='app-details-left')
+        # Retrieve team contributions
+        team_details = [parse_team_member(member) for member in project_soup.find_all('li', {'class': 'software-team-member'})]
+        return (project_title, str(project_details), team_details)
+    except:
+        return ("","","")
 
 def search_hackathon(name):
     search_page = session.get('https://devpost.com/hackathons?utf8=✓&search={}&challenge_type=all&sort_by=Recently+Added'.format(name)).text
@@ -103,4 +126,11 @@ with open('hackathon_urls','w') as hackathon_url_list_file:
         hackathon_url_list_file.write('{}\n'.format(hackathon_url))
 """
 
-
+with open('hackathon_urls','r') as hackathon_urls:
+    hack_urls = list(map(lambda url: url.rstrip(), hackathon_urls.readlines()))
+hackathon_data = {}
+for url in random.sample(hack_urls, 5):
+    print(url)
+    hackathon_data[url] = [scrape_project(project) for project in list_projects(url)]
+with open('hackathon_data.pickle','wb') as hackathon_data_file:
+    pickle.dump(hackathon_data, hackathon_data_file)

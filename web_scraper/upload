@@ -1,0 +1,2 @@
+#!/bin/bash
+scp -rp {hackathon_data.pickle,hackathon_urls,scraper.py,handler.py} aws1:boilermake/web_scraper/
